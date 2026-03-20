@@ -47,7 +47,7 @@ class SuchiController extends Controller
      }
 
      public function recommendation() {
-        return "ok";
+        return view('recommendation');
      }
 
     //

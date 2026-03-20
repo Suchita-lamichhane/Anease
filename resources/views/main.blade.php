@@ -145,8 +145,10 @@
 
             <div class="col-6 col-md-3 d-flex my-2 gap-2 justify-content-end align-items-end">
                 <i class="bi bi-cart4 py-2"></i>
+                <i class="bi bi-bag-heart-fill py-2"></i>
                 <button class=" btn btn-primary theme-btn" data-bs-toggle="modal" data-bs-target="#qrModal">Get in
                     touch</button>
+
             </div>
         </div>
         <!-- Modal -->
@@ -281,7 +283,9 @@
                         <small> -About US</small>
                         <small> -Products</small>
                         <small> -FAQs</small>
-                        <small> -Login</small>
+                        <small> <a href="/login">-Login</a></small>
+                        {{-- J HOS CODING GARNE STYLE MERAI JASTAI XAH HAHA --}}
+                        {{--  wait , dashboard type chaiyo timlai???  wait I show u, how 2 do that  --}}
                     </div>
                 </div>
                 <div class="col-6 col-md-2">
