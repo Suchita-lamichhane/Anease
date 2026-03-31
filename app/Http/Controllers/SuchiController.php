@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Wishlist;
+use App\Models\Cart;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SuchiController extends Controller
 {
@@ -48,6 +51,73 @@ class SuchiController extends Controller
 
      public function recommendation() {
         return view('recommendation');
+     }
+
+     public function checkout() {
+         if(!Auth::check()) {
+             return redirect('/login');
+         }
+         $carts = Cart::where('user_id', Auth::id())->get();
+         return view('checkout', compact('carts'));
+     }
+
+     public function addToCart(Request $request) {
+         if(!Auth::check()) {
+             return redirect('/login')->withErrors(['login' => 'Please login to add items to your cart']);
+         }
+
+         Cart::create([
+             'user_id' => Auth::id(),
+             'product_name' => $request->product_name,
+             'product_photo' => $request->product_photo,
+             'product_price' => $request->product_price,
+             'description' => $request->description,
+         ]);
+
+         return redirect()->back();
+     }
+
+     public function removeFromCart(Request $request) {
+         if(!Auth::check()) {
+             return redirect('/login');
+         }
+
+         Cart::where('id', $request->cart_id)->where('user_id', Auth::id())->delete();
+         return redirect()->back();
+     }
+
+     public function wishlist() {
+         if(!Auth::check()) {
+             return redirect('/login');
+         }
+         $wishlists = Wishlist::where('user_id', Auth::id())->get();
+         return view('wishlist', compact('wishlists'));
+     }
+
+     public function addToWishlist(Request $request) {
+         if(!Auth::check()) {
+             return redirect('/login')->withErrors(['login' => 'Please login to add items to your wishlist']);
+         }
+
+         Wishlist::firstOrCreate([
+             'user_id' => Auth::id(),
+             'product_name' => $request->product_name,
+         ], [
+             'product_photo' => $request->product_photo,
+             'product_price' => $request->product_price,
+             'description' => $request->description,
+         ]);
+
+         return redirect()->back();
+     }
+
+     public function removeFromWishlist(Request $request) {
+         if(!Auth::check()) {
+             return redirect('/login');
+         }
+
+         Wishlist::where('id', $request->wishlist_id)->where('user_id', Auth::id())->delete();
+         return redirect()->back();
      }
 
     //

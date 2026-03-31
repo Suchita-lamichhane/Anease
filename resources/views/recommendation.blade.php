@@ -16,6 +16,10 @@
         #loginBtn:hover {
             transform: scale(1.05);
         }
+        .btn-primary {
+            background-color: rgb(211, 104, 86) !important;
+            border: none;
+        }
     </style>
 
 </head>
@@ -26,7 +30,7 @@
 
             <div class="col-md-6 col-lg-5">
                 <div class="card shadow p-4">
-                    <h4 class="text-center mb-4">Find Your Skin Type</h4>
+                    <h4 class="text-center mb-4 "><i>Find Your Skin Type</i></h4>
                     <form id="skinForm">
 
                         <div class="mb-3"><label class="form-label">1. How does your skin feel after
@@ -58,14 +62,14 @@
                                 <option value="oily">Large and visible</option>
                                 <option value="normal">Small or invisible</option>
                             </select></div>
-                        <button type="button" class="btn btn-success w-100" onclick="checkSkin()">Check Result
+                        <button type="button" class="btn btn-primary w-100" onclick="checkSkin()">Check Result
                         </button>
                     </form>
 
                     <div class="mt-4 text-center">
                         <h5 id="result"></h5>
                     </div>
-                    <div class="mt-3 text-center"><button id="loginBtn" class="btn btn-success d-none ">
+                    <div class="mt-3 text-center"><button id="loginBtn" class="btn btn-primary d-none ">
                             <a href="/login"  class="text-decoration-none text-white">Login to Continue</a></button></div>
                 </div>
             </div>

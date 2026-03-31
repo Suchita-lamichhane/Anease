@@ -20,6 +20,7 @@
         a:hover {
             background-color: rgb(241, 187, 187);
             border-radius: 10px;
+            padding:0px 10px;
         }
 
         .skincare {
@@ -110,6 +111,9 @@
             width: 100%;
             border-radius: 10px;
         }
+        #bannerImage{
+            transition:opacity 0.8s ease-in-out;
+        }
     </style>
     @yield('style')
 
@@ -129,7 +133,7 @@
             <div class="col-4 d-none d-md-flex align-items-start">
                 <div class=" d-flex bg-light rounded my-3  justify-content-start align-items-start gap-4 px-3">
                     <i class="bi bi-house-heart"></i>
-                    <a class="fw-border text-dark" href="/">Home</a>
+                    <a class="fw-border text-dark" href="/home">Home</a>
                     <a class="fw-border text-dark" href="/about">About</a>
                     <a class="fw-border text-dark" href="/product">Products</a>
                     <a class="fw-border text-dark" href="/recommendation">Recommendation</a>
@@ -144,8 +148,22 @@
             </div>
 
             <div class="col-6 col-md-3 d-flex my-2 gap-2 justify-content-end align-items-end">
-                <i class="bi bi-cart4 py-2"></i>
-                <i class="bi bi-bag-heart-fill py-2"></i>
+                <a href="/checkout" class="text-dark position-relative me-3">
+                    <i class="bi bi-cart4 py-2 fs-5"></i>
+                    @if(auth()->check() && \App\Models\Cart::where('user_id', auth()->id())->count() > 0)
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.6rem;">
+                            {{ \App\Models\Cart::where('user_id', auth()->id())->count() }}
+                        </span>
+                    @endif
+                </a>
+                <a href="/wishlist" class="text-dark position-relative me-3">
+                    <i class="bi bi-bag-heart-fill py-2 fs-5"></i>
+                    @if(auth()->check() && \App\Models\Wishlist::where('user_id', auth()->id())->count() > 0)
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.6rem;">
+                            {{ \App\Models\Wishlist::where('user_id', auth()->id())->count() }}
+                        </span>
+                    @endif
+                </a>
                 <button class=" btn btn-primary theme-btn" data-bs-toggle="modal" data-bs-target="#qrModal">Get in
                     touch</button>
 
@@ -283,7 +301,6 @@
                         <small> -About US</small>
                         <small> -Products</small>
                         <small> -FAQs</small>
-                        <small> <a href="/login">-Login</a></small>
                         {{-- J HOS CODING GARNE STYLE MERAI JASTAI XAH HAHA --}}
                         {{--  wait , dashboard type chaiyo timlai???  wait I show u, how 2 do that  --}}
                     </div>
@@ -357,6 +374,22 @@
             document.getElementById("bannerImage").src = name;
             // alert(name)
         }
+    </script>
+    <script>
+        const images = ["/images/1.jpg",
+            "/images/2.jpg", "/images/9.avif",
+            "/images/6.avif",
+            "/images/7.avif"
+        ];
+        let index = 0;
+
+        function autoslide() {
+            index = (index + 1) % images.length;
+            console.log(index)
+            document.getElementById("bannerImage").src = images[index];
+
+        }
+        setInterval(autoslide, 3000);
     </script>
 
 </body>

@@ -31,10 +31,8 @@
                                 <p class="d-flex text-dark justify-content-center my-0 align-items-center">Rice water
                                     with Niacinamide</p>
                                 <div class="d-md-flex justify-content-between p-3">
-                                    <button class="btn btn-primary theme-btn"><i class="bi bi-bag"></i>
-                                        Checkout</button>
-                                    <button class="btn btn-primary theme-btn"><i class="bi bi-heart"></i>
-                                        Wishlist</button>
+                                    <a href="#" onclick="event.preventDefault(); triggerCart('Moisturizer', '/images/image.png', 'Rice water with Niacinamide')" class="btn btn-primary theme-btn"><i class="bi bi-bag"></i> Checkout</a>
+                                    <a href="#" onclick="event.preventDefault(); triggerWishlist('Moisturizer', '/images/image.png', 'Rice water with Niacinamide')" class="btn btn-primary theme-btn"><i class="bi bi-heart"></i> Wishlist</a>
                                 </div>
                             </div>
                         </div>
@@ -49,10 +47,8 @@
                                 <p class="d-flex dark justify-content-center my-0 align-items-center">dewy and plumpy
                                     skin</p>
                                 <div class="d-md-flex justify-content-between p-3">
-                                    <button class="btn btn-primary theme-btn"><i class="bi bi-bag"></i>
-                                        Checkout</button>
-                                    <button class="btn btn-primary theme-btn"><i class="bi bi-heart"></i>
-                                        Wishlist</button>
+                                    <a href="#" onclick="event.preventDefault(); triggerCart('Hyaluronic Serum', '/images/image copy.png', 'dewy and plumpy skin')" class="btn btn-primary theme-btn"><i class="bi bi-bag"></i> Checkout</a>
+                                    <a href="#" onclick="event.preventDefault(); triggerWishlist('Hyaluronic Serum', '/images/image copy.png', 'dewy and plumpy skin')" class="btn btn-primary theme-btn"><i class="bi bi-heart"></i> Wishlist</a>
                                 </div>
                             </div>
                         </div>
@@ -67,10 +63,8 @@
                                 <p class="d-flex text-dark justify-content-center my-0 align-items-center">spf50 and
                                     pa++++</p>
                                 <div class="d-md-flex justify-content-between p-3">
-                                    <button class="btn btn-primary theme-btn"><i class="bi bi-bag"></i>
-                                        Checkout</button>
-                                    <button class="btn btn-primary theme-btn"><i class="bi bi-heart"></i>
-                                        Wishlist</button>
+                                    <a href="#" onclick="event.preventDefault(); triggerCart('Sunscreen', '/images/image copy 2.png', 'spf50 and pa++++')" class="btn btn-primary theme-btn"><i class="bi bi-bag"></i> Checkout</a>
+                                    <a href="#" onclick="event.preventDefault(); triggerWishlist('Sunscreen', '/images/image copy 2.png', 'spf50 and pa++++')" class="btn btn-primary theme-btn"><i class="bi bi-heart"></i> Wishlist</a>
                                 </div>
                             </div>
                         </div>
@@ -83,10 +77,8 @@
                                 <p class="d-flex text-dark justify-content-center my-0 align-items-center">lightweight
                                     and non-comodegenic</p>
                                 <div class="d-md-flex justify-content-between p-3">
-                                    <button class="btn btn-primary theme-btn"><i class="bi bi-bag"></i>
-                                        Checkout</button>
-                                    <button class="btn btn-primary theme-btn"><i class="bi bi-heart"></i>
-                                        Wishlist</button>
+                                    <a href="#" onclick="event.preventDefault(); triggerCart('Oil cleanser', '/images/25.avif', 'lightweight and non-comodegenic')" class="btn btn-primary theme-btn"><i class="bi bi-bag"></i> Checkout</a>
+                                    <a href="#" onclick="event.preventDefault(); triggerWishlist('Oil cleanser', '/images/25.avif', 'lightweight and non-comodegenic')" class="btn btn-primary theme-btn"><i class="bi bi-heart"></i> Wishlist</a>
                                 </div>
                             </div>
                         </div>
@@ -123,10 +115,8 @@
                                 <p class="d-flex text-dark justify-content-center my-0 align-items-center">reduce
                                     puffiness and dark circle</p>
                                 <div class="d-md-flex justify-content-between p-3">
-                                    <button class="btn btn-primary theme-btn"><i class="bi bi-bag"></i>
-                                        Checkout</button>
-                                    <button class="btn btn-primary theme-btn"><i class="bi bi-heart"></i>
-                                        Wishlist</button>
+                                    <a href="#" onclick="event.preventDefault(); triggerCart('Eye cream', '/images/1.png', 'reduce puffiness and dark circle')" class="btn btn-primary theme-btn"><i class="bi bi-bag"></i> Checkout</a>
+                                    <a href="#" onclick="event.preventDefault(); triggerWishlist('Eye cream', '/images/1.png', 'reduce puffiness and dark circle')" class="btn btn-primary theme-btn"><i class="bi bi-heart"></i> Wishlist</a>
                                 </div>
                             </div>
                         </div>
@@ -140,10 +130,8 @@
                                 <p class="d-flex text-dark justify-content-center my-0 align-items-center">gel based
                                     spf50</p>
                                 <div class="d-md-flex justify-content-between p-3">
-                                    <button class="btn btn-primary theme-btn"><i class="bi bi-bag"></i>
-                                        Checkout</button>
-                                    <button class="btn btn-primary theme-btn"><i class="bi bi-heart"></i>
-                                        Wishlist</button>
+                                    <a href="#" onclick="event.preventDefault(); triggerCart('Sunscreen', '/images/8.jpg', 'gel based spf50')" class="btn btn-primary theme-btn"><i class="bi bi-bag"></i> Checkout</a>
+                                    <a href="#" onclick="event.preventDefault(); triggerWishlist('Sunscreen', '/images/8.jpg', 'gel based spf50')" class="btn btn-primary theme-btn"><i class="bi bi-heart"></i> Wishlist</a>
                                 </div>
                             </div>
                         </div>
@@ -157,10 +145,8 @@
                                 <p class="d-flex text-dark justify-content-center my-0 align-items-center">for
                                     anti-aging and brightening</p>
                                 <div class="d-md-flex justify-content-between p-3">
-                                    <button class="btn btn-primary theme-btn"><i class="bi bi-bag"></i>
-                                        Checkout</button>
-                                    <button class="btn btn-primary theme-btn"><i class="bi bi-heart"></i>
-                                        Wishlist</button>
+                                    <a href="#" onclick="event.preventDefault(); triggerCart('Retinal serum', '/images/2.png', 'for anti-aging and brightening')" class="btn btn-primary theme-btn"><i class="bi bi-bag"></i> Checkout</a>
+                                    <a href="#" onclick="event.preventDefault(); triggerWishlist('Retinal serum', '/images/2.png', 'for anti-aging and brightening')" class="btn btn-primary theme-btn"><i class="bi bi-heart"></i> Wishlist</a>
                                 </div>
                             </div>
                         </div>
@@ -168,4 +154,36 @@
 
 
                     </div>
-       @endsection
+       
+<form id="wishlistForm" method="POST" action="/wishlist/add" class="d-none">
+    @csrf
+    <input type="hidden" name="product_name" id="wl_name">
+    <input type="hidden" name="product_photo" id="wl_photo">
+    <input type="hidden" name="description" id="wl_desc">
+</form>
+<script>
+    function triggerWishlist(name, photo, desc) {
+        document.getElementById('wl_name').value = name;
+        document.getElementById('wl_photo').value = photo;
+        document.getElementById('wl_desc').value = desc;
+        document.getElementById('wishlistForm').submit();
+    }
+</script>
+
+
+<form id="cartForm" method="POST" action="/cart/add" class="d-none">
+    @csrf
+    <input type="hidden" name="product_name" id="cart_name">
+    <input type="hidden" name="product_photo" id="cart_photo">
+    <input type="hidden" name="description" id="cart_desc">
+</form>
+<script>
+    function triggerCart(name, photo, desc) {
+        document.getElementById('cart_name').value = name;
+        document.getElementById('cart_photo').value = photo;
+        document.getElementById('cart_desc').value = desc;
+        document.getElementById('cartForm').submit();
+    }
+</script>
+
+@endsection
