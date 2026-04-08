@@ -1,129 +1,124 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('main')
 
-<head>
-    <meta charset="UTF-8">
-    <title>Skin Type Finder</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        #loginBtn {
-            border-radius: 12px;
-            padding: 10px 20px;
-            font-weight: 500;
-            transition: 0.3s;
-        }
+@section('content')
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card shadow p-4 border-0 rounded-4">
+                <h4 class="text-center mb-4 "><i>Find Your Skin Type</i></h4>
+                <form id="skinForm">
 
-        #loginBtn:hover {
-            transform: scale(1.05);
-        }
-        .btn-primary {
-            background-color: rgb(211, 104, 86) !important;
-            border: none;
-        }
-    </style>
+                    <div class="mb-4">
+                        <label class="form-label fw-bold">1. How does your skin feel after washing?</label>
+                        <div class="d-flex flex-wrap gap-2">
+                            <input type="radio" class="btn-check" name="q1" id="q1_dry" value="dry" autocomplete="off">
+                            <label class="btn btn-outline-secondary rounded-pill" for="q1_dry">Tight and dry</label>
 
-</head>
+                            <input type="radio" class="btn-check" name="q1" id="q1_oily" value="oily" autocomplete="off">
+                            <label class="btn btn-outline-secondary rounded-pill" for="q1_oily">Greasy</label>
 
-<body class="bg-light d-flex align-items-center" style="min-height:100vh;">
-    <div class="container">
-        <div class="row justify-content-center">
-
-            <div class="col-md-6 col-lg-5">
-                <div class="card shadow p-4">
-                    <h4 class="text-center mb-4 "><i>Find Your Skin Type</i></h4>
-                    <form id="skinForm">
-
-                        <div class="mb-3"><label class="form-label">1. How does your skin feel after
-                                washing?</label><select class="form-select" name="q1">
-                                <option value="">Select</option>
-                                <option value="dry">Tight and dry</option>
-                                <option value="oily">Greasy</option>
-                                <option value="normal">Comfortable</option>
-                            </select></div>
-
-                        <div class="mb-3"><label class="form-label">2. How often does your face get
-                                shiny?</label><select class="form-select" name="q2">
-                                <option value="">Select</option>
-                                <option value="oily">Very often</option>
-                                <option value="combo">Only T-zone</option>
-                                <option value="normal">Rarely</option>
-                            </select></div>
-
-                        <div class="mb-3"><label class="form-label">3. Do you experience irritation or
-                                redness?</label><select class="form-select" name="q3">
-                                <option value="">Select</option>
-                                <option value="sensitive">Often</option>
-                                <option value="normal">Rarely</option>
-                            </select></div>
-
-                        <div class="mb-3"><label class="form-label">4. How visible are your
-                                pores?</label><select class="form-select" name="q4">
-                                <option value="">Select</option>
-                                <option value="oily">Large and visible</option>
-                                <option value="normal">Small or invisible</option>
-                            </select></div>
-                        <button type="button" class="btn btn-primary w-100" onclick="checkSkin()">Check Result
-                        </button>
-                    </form>
-
-                    <div class="mt-4 text-center">
-                        <h5 id="result"></h5>
+                            <input type="radio" class="btn-check" name="q1" id="q1_normal" value="normal" autocomplete="off">
+                            <label class="btn btn-outline-secondary rounded-pill" for="q1_normal">Comfortable</label>
+                        </div>
                     </div>
-                    <div class="mt-3 text-center"><button id="loginBtn" class="btn btn-primary d-none ">
-                            <a href="/login"  class="text-decoration-none text-white">Login to Continue</a></button></div>
+
+                    <div class="mb-4">
+                        <label class="form-label fw-bold">2. How often does your face get shiny?</label>
+                        <div class="d-flex flex-wrap gap-2">
+                            <input type="radio" class="btn-check" name="q2" id="q2_oily" value="oily" autocomplete="off">
+                            <label class="btn btn-outline-secondary rounded-pill" for="q2_oily">Very often</label>
+
+                            <input type="radio" class="btn-check" name="q2" id="q2_combo" value="combo" autocomplete="off">
+                            <label class="btn btn-outline-secondary rounded-pill" for="q2_combo">Only T-zone</label>
+
+                            <input type="radio" class="btn-check" name="q2" id="q2_normal" value="normal" autocomplete="off">
+                            <label class="btn btn-outline-secondary rounded-pill" for="q2_normal">Rarely</label>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label fw-bold">3. Do you experience irritation or redness?</label>
+                        <div class="d-flex flex-wrap gap-2">
+                            <input type="radio" class="btn-check" name="q3" id="q3_sensitive" value="sensitive" autocomplete="off">
+                            <label class="btn btn-outline-secondary rounded-pill" for="q3_sensitive">Often</label>
+
+                            <input type="radio" class="btn-check" name="q3" id="q3_normal" value="normal" autocomplete="off">
+                            <label class="btn btn-outline-secondary rounded-pill" for="q3_normal">Rarely</label>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label fw-bold">4. How visible are your pores?</label>
+                        <div class="d-flex flex-wrap gap-2">
+                            <input type="radio" class="btn-check" name="q4" id="q4_oily" value="oily" autocomplete="off">
+                            <label class="btn btn-outline-secondary rounded-pill" for="q4_oily">Large and visible</label>
+
+                            <input type="radio" class="btn-check" name="q4" id="q4_normal" value="normal" autocomplete="off">
+                            <label class="btn btn-outline-secondary rounded-pill" for="q4_normal">Small or invisible</label>
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn btn-primary w-100 theme-btn py-2 mt-3" onclick="checkSkin()">Check Result</button>
+                </form>
+
+                <div class="mt-4 text-center">
+                    <h5 id="result" class="fw-bold text-dark"></h5>
                 </div>
             </div>
         </div>
     </div>
-    <script>
-        function checkSkin() {
-            const form = document.forms["skinForm"];
+</div>
 
-            let answers = [
-                form["q1"].value,
-                form["q2"].value,
-                form["q3"].value,
-                form["q4"].value
-            ];
+<script>
+    function checkSkin() {
+        const form = document.forms["skinForm"];
 
-            let score = {
-                oily: 0,
-                dry: 0,
-                combo: 0,
-                sensitive: 0,
-                normal: 0
-            };
+        let q1 = form.querySelector('input[name="q1"]:checked');
+        let q2 = form.querySelector('input[name="q2"]:checked');
+        let q3 = form.querySelector('input[name="q3"]:checked');
+        let q4 = form.querySelector('input[name="q4"]:checked');
 
-            answers.forEach(ans => {
-                if (ans) score[ans]++;
-            });
-
-            let result = Object.keys(score).reduce((a, b) => score[a] > score[b] ? a : b);
-
-            let message = "";
-
-            switch (result) {
-                case "oily":
-                    message = "You have Oily Skin 💧";
-                    break;
-                case "dry":
-                    message = "You have Dry Skin 🌵";
-                    break;
-                case "combo":
-                    message = "You have Combination Skin 🔄";
-                    break;
-                case "sensitive":
-                    message = "You have Sensitive Skin ⚠️";
-                    break;
-                default:
-                    message = "You have Normal Skin 🙂";
-            }
-
-            document.getElementById("result").innerText = message;
-            document.getElementById("loginBtn").classList.remove("d-none");
-
+        if (!q1 || !q2 || !q3 || !q4) {
+            alert("Please answer all questions.");
+            return;
         }
-    </script>
-</body>
 
-</html>
+        let answers = [q1.value, q2.value, q3.value, q4.value];
+
+        let score = {
+            oily: 0,
+            dry: 0,
+            combo: 0,
+            sensitive: 0,
+            normal: 0
+        };
+
+        answers.forEach(ans => {
+            if (ans && score[ans] !== undefined) score[ans]++;
+        });
+
+        let result = Object.keys(score).reduce((a, b) => score[a] > score[b] ? a : b);
+
+        let message = "";
+
+        switch (result) {
+            case "oily":
+                message = "You have Oily Skin 💧";
+                break;
+            case "dry":
+                message = "You have Dry Skin 🌵";
+                break;
+            case "combo":
+                message = "You have Combination Skin 🔄";
+                break;
+            case "sensitive":
+                message = "You have Sensitive Skin ⚠️";
+                break;
+            default:
+                message = "You have Normal Skin 🙂";
+        }
+
+        document.getElementById("result").innerText = message;
+    }
+</script>
+@endsection

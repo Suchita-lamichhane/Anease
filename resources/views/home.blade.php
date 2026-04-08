@@ -20,170 +20,81 @@
 
                     </div>
                     <!--  -->
-                    <div class="row m-0 p-0">
-                        <div class="col-6 col-md-3 p-md-4">
-                            <div class="col-12 shadow rounded p-0 product-card " style="backdrop-filter: blur(50px);">
-                                <img src="/images/image.png" class="rounded"
-                                    style="width: 100%; aspect-ratio: 3/2 ; object-fit: cover;"
-                                    alt="">
-                                <h4 class=" d-flex text-dark justify-content-center my-0 align-items-center mt-2">
-                                    Moisturizer </h4>
-                                <p class="d-flex text-dark justify-content-center my-0 align-items-center">Rice water
-                                    with Niacinamide</p>
-                                <div class="d-md-flex justify-content-between p-3">
-                                    <a href="#" onclick="event.preventDefault(); triggerCart('Moisturizer', '/images/image.png', 'Rice water with Niacinamide')" class="btn btn-primary theme-btn"><i class="bi bi-bag"></i> Checkout</a>
-                                    <a href="#" onclick="event.preventDefault(); triggerWishlist('Moisturizer', '/images/image.png', 'Rice water with Niacinamide')" class="btn btn-primary theme-btn"><i class="bi bi-heart"></i> Wishlist</a>
+                     <!-- Popular Categories Section -->
+                    <div class="col-12 my-5 py-5 rounded" style="background-color: #F7F5F2;">
+                        <div class="text-center mb-5">
+                            <h6 class="text-uppercase text-muted mb-2" style="font-size: 11px; letter-spacing: 2px;">Shop by Categories</h6>
+                            <h2 class="text-dark fw-normal" style="font-family: serif; font-size: 2.5rem;">Popular Categories</h2>
+                        </div>
+                        
+                        <div class="row m-0 justify-content-center text-center">
+                            <div class="col-6 col-md-3 d-flex flex-column align-items-center mb-4 mb-md-0">
+                                <div style="border: 1px dashed #bdaea0; border-radius: 150px; padding: 8px; width: 140px; height: 210px;" class="mb-3">
+                                    <img src="/assets/20.jpg" style="width: 100%; height: 100%; object-fit: cover; border-radius: 140px;" alt="Bio-Herbal">
                                 </div>
+                                <h6 class="mb-1 text-dark" style="font-weight: 600;">Oily-skin</h6>
+                                <small class="text-muted" style="font-size: 11px;">3 items</small>
+                            </div>
+                            <div class="col-6 col-md-3 d-flex flex-column align-items-center mb-4 mb-md-0">
+                                <div style="border: 1px dashed #bdaea0; border-radius: 150px; padding: 8px; width: 140px; height: 210px;" class="mb-3">
+                                    <img src="/assets/18.jpg" style="width: 100%; height: 100%; object-fit: cover; border-radius: 140px;" alt="Body-Lotion">
+                                </div>
+                                <h6 class="mb-1 text-dark" style="font-weight: 600;">Dry-skin</h6>
+                                <small class="text-muted" style="font-size: 11px;">4 items</small>
+                            </div>
+                            <div class="col-6 col-md-3 d-flex flex-column align-items-center mb-4 mb-md-0">
+                                <div style="border: 1px dashed #bdaea0; border-radius: 150px; padding: 8px; width: 140px; height: 210px;" class="mb-3">
+                                    <img src="/assets/24.jpg" style="width: 100%; height: 100%; object-fit: cover; border-radius: 140px;" alt="Candle-Spa">
+                                </div>
+                                <h6 class="mb-1 text-dark" style="font-weight: 600;">Sensitive-skin</h6>
+                                <small class="text-muted" style="font-size: 11px;">2 items</small>
+                            </div>
+                            <div class="col-6 col-md-3 d-flex flex-column align-items-center mb-4 mb-md-0">
+                                <div style="border: 1px dashed #bdaea0; border-radius: 150px; padding: 8px; width: 140px; height: 210px;" class="mb-3">
+                                    <img src="/assets/29.jpg" style="width: 100%; height: 100%; object-fit: cover; border-radius: 140px;" alt="Skin-Care">
+                                </div>
+                                <h6 class="mb-1 text-dark" style="font-weight: 600;">Normal-skin</h6>
+                                <small class="text-muted" style="font-size: 11px;">4 items</small>
                             </div>
                         </div>
-
-                        <div class="col-6 col-md-3 p-md-4">
-                            <div class="col-12 shadow rounded p-0 product-card " style="backdrop-filter: blur(50px);">
-                                <img src="/images/image copy.png" class="rounded"
-                                    style="width: 100%;  aspect-ratio: 3/2 ; object-fit: cover;">
-                                <h4 class=" d-flex text-dark justify-content-center my-0 align-items-center mt-2">
-                                    Hyaluronic
-                                    Serum</h4>
-                                <p class="d-flex dark justify-content-center my-0 align-items-center">dewy and plumpy
-                                    skin</p>
-                                <div class="d-md-flex justify-content-between p-3">
-                                    <a href="#" onclick="event.preventDefault(); triggerCart('Hyaluronic Serum', '/images/image copy.png', 'dewy and plumpy skin')" class="btn btn-primary theme-btn"><i class="bi bi-bag"></i> Checkout</a>
-                                    <a href="#" onclick="event.preventDefault(); triggerWishlist('Hyaluronic Serum', '/images/image copy.png', 'dewy and plumpy skin')" class="btn btn-primary theme-btn"><i class="bi bi-heart"></i> Wishlist</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-6 col-md-3 p-md-4">
-                            <div class="col-12 shadow rounded p-0 product-card ">
-                                <img src="/images/image copy 2.png" class="rounded"
-                                    style="width: 100%;  aspect-ratio: 3/2 ; object-fit: cover;">
-                                <h4 class=" d-flex text-dark justify-content-center my-0 align-items-center mt-2">
-                                    Sunscreen
-                                </h4>
-                                <p class="d-flex text-dark justify-content-center my-0 align-items-center">spf50 and
-                                    pa++++</p>
-                                <div class="d-md-flex justify-content-between p-3">
-                                    <a href="#" onclick="event.preventDefault(); triggerCart('Sunscreen', '/images/image copy 2.png', 'spf50 and pa++++')" class="btn btn-primary theme-btn"><i class="bi bi-bag"></i> Checkout</a>
-                                    <a href="#" onclick="event.preventDefault(); triggerWishlist('Sunscreen', '/images/image copy 2.png', 'spf50 and pa++++')" class="btn btn-primary theme-btn"><i class="bi bi-heart"></i> Wishlist</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6 col-md-3 p-md-4">
-                            <div class="col-12 shadow rounded p-0 product-card">
-                                <img src="/images/25.avif" class="rounded"
-                                    style="width: 100%;  aspect-ratio: 3/2 ; object-fit: cover;">
-                                <h4 class=" d-flex text-dark justify-content-center my-0 align-items-center mt-2">Oil
-                                    cleanser</h4>
-                                <p class="d-flex text-dark justify-content-center my-0 align-items-center">lightweight
-                                    and non-comodegenic</p>
-                                <div class="d-md-flex justify-content-between p-3">
-                                    <a href="#" onclick="event.preventDefault(); triggerCart('Oil cleanser', '/images/25.avif', 'lightweight and non-comodegenic')" class="btn btn-primary theme-btn"><i class="bi bi-bag"></i> Checkout</a>
-                                    <a href="#" onclick="event.preventDefault(); triggerWishlist('Oil cleanser', '/images/25.avif', 'lightweight and non-comodegenic')" class="btn btn-primary theme-btn"><i class="bi bi-heart"></i> Wishlist</a>
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
-                    <!-- CONTINUE HERE -->
-                    <div class="row m-0 p-0">
-                        <div class="col-6 col-md-3 p-md-4 d-flex  align-items-end flex-column">
-                            <img src="/images/giphy.gif" class="trailer">
-                            <div
-                                class="col-12 p-0 shadow rounded d-flex align-items-center flex-column flex-md-row  product-memo ">
+                   
+                    
 
-                                <i class="bi bi-qr-code fs-1 px-2"></i>
-                                <div class=" m-0 ">
-                                    <p class=" d-md-flex  justify-content-center px-md-5 my-0 align-items-end mt-2">
-                                        Enjoy Convinient
-                                    </p>
-                                    <p
-                                        class="d-md-flex  text-dark justify-content-center px-md-4 my-0 align-items-end ">
-                                        Order Tracking
-                                    </p>
-                                </div>
-
+                    <!-- Best of Collection Section -->
+                    <div class="row m-0 my-5 bg-white shadow-sm rounded overflow-hidden align-items-stretch">
+                        <!-- Left Small Image -->
+                        <div class="col-12 col-md-3 p-4 d-flex justify-content-center align-items-center" style="background-color: #fdfdfd;">
+                            <img src="/assets/15.jpg" alt="Skincare routine" class="rounded shadow-sm" style="width: 140px; height: 210px; object-fit: cover;">
+                        </div>
+                        
+                        <!-- Middle Column: Text Box -->
+                        <div class="col-12 col-md-5 p-4 d-flex flex-column justify-content-center text-center text-md-start position-relative" style="background-color: #F8F6F0;">
+                            <h6 class="text-uppercase text-muted mb-2" style="font-size: 10px; letter-spacing: 2px;">Best by Collection 2026</h6>
+                            <h2 class="text-dark fw-normal mb-3" style="font-family: serif; font-size: 1.8rem; line-height: 1.2;">Discover your true skin<br>care for all skin types</h2>
+                            <p class="text-muted mb-4" style="font-size: 11px; line-height: 1.6;">Our exclusive assortment is rich organically and beautifully. To embrace our dedication to fostering glowing skin of vitality.</p>
+                            <div>
+                                <a href="/product" class="btn btn-dark rounded-0 px-4 py-2 text-uppercase" style="font-size: 10px; letter-spacing: 1px;">Shop Now</a>
+                            </div>
+                            
+                            <!-- Decorator Badge -->
+                            <div class="position-absolute bg-white rounded-circle d-none d-lg-flex align-items-center justify-content-center shadow-sm" style="width: 70px; height: 70px; top: 50%; right: -35px; transform: translateY(-50%); z-index: 10;">
+                                <div class="text-center text-uppercase" style="font-size: 7px; letter-spacing: 1px; color: #7b7167; padding: 5px; border: 1px dashed #bdaea0; border-radius: 50%; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;">100%<br>Herbal</div>
                             </div>
                         </div>
-                        <!-- <h2> Trending item</h2> -->
-                        <div class="col-6 col-md-3 mt-2 p-md-4">
-                            <h4 class="memo"> Trending item</h4>
-                            <div class="col-12 shadow rounded p-0 product-card">
-                                <img src="/images/1.png" class="rounded"
-                                    style="width: 100%;  aspect-ratio: 3/2 ; object-fit: cover;">
-                                <h4 class=" d-flex text-dark justify-content-center my-0 align-items-center mt-2">Eye
-                                    cream</h4>
-                                <p class="d-flex text-dark justify-content-center my-0 align-items-center">reduce
-                                    puffiness and dark circle</p>
-                                <div class="d-md-flex justify-content-between p-3">
-                                    <a href="#" onclick="event.preventDefault(); triggerCart('Eye cream', '/images/1.png', 'reduce puffiness and dark circle')" class="btn btn-primary theme-btn"><i class="bi bi-bag"></i> Checkout</a>
-                                    <a href="#" onclick="event.preventDefault(); triggerWishlist('Eye cream', '/images/1.png', 'reduce puffiness and dark circle')" class="btn btn-primary theme-btn"><i class="bi bi-heart"></i> Wishlist</a>
-                                </div>
-                            </div>
+                        
+                        <!-- Right Column: Images Side-by-Side -->
+                        <div class="col-12 col-md-4 p-4 d-flex flex-row flex-wrap justify-content-center align-items-center gap-2">
+                            <img src="/assets/22.jpg" alt="Herbal Product" class="rounded shadow-sm" style="width: 140px; height: 210px; object-fit: cover;">
+                            <img src="/assets/2.png" alt="Hand holding product" class="rounded shadow-sm d-none d-xl-block" style="width: 140px; height: 210px; object-fit: cover;">
                         </div>
-                        <div class="col-6 col-md-3 mt-5 p-md-4">
-                            <div class="col-12 shadow rounded p-0 product-card">
-                                <img src="/images/8.jpg" class="rounded"
-                                    style="width: 100%;  aspect-ratio: 3/2 ; object-fit: cover;">
-                                <h4 class=" d-flex text-dark justify-content-center my-0 align-items-center mt-2">
-                                    Sunscreen
-                                </h4>
-                                <p class="d-flex text-dark justify-content-center my-0 align-items-center">gel based
-                                    spf50</p>
-                                <div class="d-md-flex justify-content-between p-3">
-                                    <a href="#" onclick="event.preventDefault(); triggerCart('Sunscreen', '/images/8.jpg', 'gel based spf50')" class="btn btn-primary theme-btn"><i class="bi bi-bag"></i> Checkout</a>
-                                    <a href="#" onclick="event.preventDefault(); triggerWishlist('Sunscreen', '/images/8.jpg', 'gel based spf50')" class="btn btn-primary theme-btn"><i class="bi bi-heart"></i> Wishlist</a>
-                                </div>
-                            </div>
+                        
+                        <!-- Full Width Bottom Text -->
+                        <div class="col-12 d-flex flex-column align-items-center justify-content-center p-3 border-top" style="background-color: #F8F6F0;">
+                            <h6 class="text-uppercase text-muted mb-2" style="font-size: 9px; letter-spacing: 3px;">Treasure Products</h6>
+                            <p class="text-center text-dark m-0" style="font-family: serif; font-size: 1rem; max-width: 400px; line-height: 1.4;">Having a place set aside for an activity you love makes it more likely you'll do it.</p>
                         </div>
-                        <div class="col-6 col-md-3 mt-5 p-md-4">
-                            <div class="col-12 shadow rounded p-0 product-card">
-                                <img src="/images/2.png" class="rounded"
-                                    style="width: 100%;  aspect-ratio: 3/2 ; object-fit: cover;">
-                                <h4 class=" d-flex text-dark justify-content-center my-0 align-items-center mt-2">
-                                    Retinal serum
-                                </h4>
-                                <p class="d-flex text-dark justify-content-center my-0 align-items-center">for
-                                    anti-aging and brightening</p>
-                                <div class="d-md-flex justify-content-between p-3">
-                                    <a href="#" onclick="event.preventDefault(); triggerCart('Retinal serum', '/images/2.png', 'for anti-aging and brightening')" class="btn btn-primary theme-btn"><i class="bi bi-bag"></i> Checkout</a>
-                                    <a href="#" onclick="event.preventDefault(); triggerWishlist('Retinal serum', '/images/2.png', 'for anti-aging and brightening')" class="btn btn-primary theme-btn"><i class="bi bi-heart"></i> Wishlist</a>
-                                </div>
-                            </div>
-                        </div>
-
-
-
                     </div>
-       
-<form id="wishlistForm" method="POST" action="/wishlist/add" class="d-none">
-    @csrf
-    <input type="hidden" name="product_name" id="wl_name">
-    <input type="hidden" name="product_photo" id="wl_photo">
-    <input type="hidden" name="description" id="wl_desc">
-</form>
-<script>
-    function triggerWishlist(name, photo, desc) {
-        document.getElementById('wl_name').value = name;
-        document.getElementById('wl_photo').value = photo;
-        document.getElementById('wl_desc').value = desc;
-        document.getElementById('wishlistForm').submit();
-    }
-</script>
-
-
-<form id="cartForm" method="POST" action="/cart/add" class="d-none">
-    @csrf
-    <input type="hidden" name="product_name" id="cart_name">
-    <input type="hidden" name="product_photo" id="cart_photo">
-    <input type="hidden" name="description" id="cart_desc">
-</form>
-<script>
-    function triggerCart(name, photo, desc) {
-        document.getElementById('cart_name').value = name;
-        document.getElementById('cart_photo').value = photo;
-        document.getElementById('cart_desc').value = desc;
-        document.getElementById('cartForm').submit();
-    }
-</script>
+                    
 
 @endsection

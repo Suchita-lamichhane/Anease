@@ -44,6 +44,7 @@ class AuthController extends Controller
         
         $request->validate([
             'firstname' => 'required|min:3|max:10',
+            'middlename' => 'nullable|string|max:10',
             'lastname' => 'required',
             'email' => 'required|unique:users',
             'password' => 'required|confirmed',
@@ -52,8 +53,9 @@ class AuthController extends Controller
 
         $user = new User;
         $user->firstname = $request->firstname;
+        $user->middlename = $request->middlename;
         $user->lastname = $request->lastname;
-        $user->name = $request->firstname . ' ' . $request->lastname;
+        $user->name = $request->firstname . ' ' .($request->middlename ? $request->middlename . ' ' : '') . $request->lastname;
         $user->email = $request->email;
         $user->profile_photo = '/assets/images/image.png';
         $user->password = \Hash::make($request->password);

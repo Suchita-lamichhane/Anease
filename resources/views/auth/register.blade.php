@@ -71,7 +71,14 @@
                             <small class="text-danger fw-semibold">{{ $message }}</small>
                         @enderror
                     </div>
-                    <div class="col-md-6 mb-3">
+                     <div class="col-md-6 mb-3">
+                        <label for="registerLastName" class="form-label">Middle Name(optional)</label>
+                        <input type="text" class="form-control" name="lastname" id="registerLastName" placeholder="Middle Name" >
+                        @error('middlename')
+                            <small class="text-danger fw-semibold">{{ $message }}</small>
+                        @enderror
+                    </div>
+                    <div class=" mb-3">
                         <label for="registerLastName" class="form-label">Last Name</label>
                         <input type="text" class="form-control" name="lastname" id="registerLastName" placeholder="Last Name" value="{{ old('lastname') }}">
                         @error('lastname')

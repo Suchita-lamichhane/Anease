@@ -53,6 +53,16 @@ class SuchiController extends Controller
         return view('recommendation');
      }
 
+     public function search(Request $request)
+     {
+         $query = $request->input('query');
+         $items = Product::where('name', 'LIKE', "%{$query}%")
+                            ->orWhere('description', 'LIKE', "%{$query}%")
+                            ->get();
+
+         return view('search', compact('items', 'query'));
+     }
+
      public function checkout() {
          if(!Auth::check()) {
              return redirect('/login');
