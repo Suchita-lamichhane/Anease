@@ -98,3 +98,23 @@
                     
 
 @endsection
+
+@section('script')
+<script>
+    const homeImages = [
+        "/images/1.jpg",
+        "/images/2.jpg", 
+        "/images/9.avif",
+        "/images/6.avif",
+        "/images/7.avif"
+    ];
+    let homeIndex = 0;
+
+    function autoSlideHome() {
+        homeIndex = (homeIndex + 1) % homeImages.length;
+        let img = document.getElementById("bannerImage");
+        if(img) img.src = homeImages[homeIndex];
+    }
+    setInterval(autoSlideHome, 3000);
+</script>
+@endsection

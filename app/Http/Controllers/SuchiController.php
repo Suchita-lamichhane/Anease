@@ -84,7 +84,7 @@ class SuchiController extends Controller
              'description' => $request->description,
          ]);
 
-         return redirect()->back();
+         return redirect()->back()->with('success', 'Product added to cart successfully!');
      }
 
      public function removeFromCart(Request $request) {
@@ -93,7 +93,7 @@ class SuchiController extends Controller
          }
 
          Cart::where('id', $request->cart_id)->where('user_id', Auth::id())->delete();
-         return redirect()->back();
+         return redirect()->back()->with('success', 'Product removed from cart successfully!');
      }
 
      public function wishlist() {
@@ -118,7 +118,7 @@ class SuchiController extends Controller
              'description' => $request->description,
          ]);
 
-         return redirect()->back();
+         return redirect()->back()->with('success', 'Product added to wishlist successfully!');
      }
 
      public function removeFromWishlist(Request $request) {
@@ -127,7 +127,7 @@ class SuchiController extends Controller
          }
 
          Wishlist::where('id', $request->wishlist_id)->where('user_id', Auth::id())->delete();
-         return redirect()->back();
+         return redirect()->back()->with('success', 'Product removed from wishlist successfully!');
      }
 
     //

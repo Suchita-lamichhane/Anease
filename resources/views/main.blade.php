@@ -290,6 +290,28 @@
     </header>
 
     <main class="flex-grow-1">
+        @if (session('success'))
+            <div class="container mt-3">
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{ session('success') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </div>
+        @endif
+
+        @if ($errors->any())
+            <div class="container mt-3">
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <ul class="mb-0">
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </div>
+        @endif
+
         @yield('content')
 
         <!-- -->
@@ -457,26 +479,13 @@
 
     <script>
         function changePicture(name) {
-            document.getElementById("bannerImage").src = name;
-            // alert(name)
+            let img = document.getElementById("bannerImage");
+            if(img) {
+                img.src = name;
+            }
         }
     </script>
-    <script>
-        const images = ["/images/1.jpg",
-            "/images/2.jpg", "/images/9.avif",
-            "/images/6.avif",
-            "/images/7.avif"
-        ];
-        let index = 0;
-
-        function autoslide() {
-            index = (index + 1) % images.length;
-            console.log(index)
-            document.getElementById("bannerImage").src = images[index];
-
-        }
-        setInterval(autoslide, 3000);
-    </script>
+    @yield('script')
 
 </body>
 
