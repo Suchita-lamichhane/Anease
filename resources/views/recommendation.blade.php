@@ -2,7 +2,8 @@
 
 @section('content')
 <div class="container my-5">
-    <div class="row justify-content-center">
+    <!-- Skin Type Section -->
+    <div class="row justify-content-center mb-5">
         <div class="col-md-8 col-lg-6">
             <div class="card shadow p-4 border-0 rounded-4">
                 <h4 class="text-center mb-4 "><i>Find Your Skin Type</i></h4>
@@ -63,6 +64,9 @@
 
                 <div class="mt-4 text-center">
                     <h5 id="result" class="fw-bold text-dark"></h5>
+                    <div id="action-container" style="display: none;" class="mt-3">
+                        <a href="/product" class="btn btn-outline-danger theme-btn px-4 py-2">Learn More</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -70,6 +74,7 @@
 </div>
 
 <script>
+    // Original Skin Type Finder Script
     function checkSkin() {
         const form = document.forms["skinForm"];
 
@@ -119,6 +124,8 @@
         }
 
         document.getElementById("result").innerText = message;
+        document.getElementById("action-container").style.display = "block";
     }
+
 </script>
 @endsection

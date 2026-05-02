@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SuchiController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PaymentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +24,7 @@ Route::get('/product/view', [BlogController::class, 'view']);
 Route::post('/product/view/{id}', [BlogController::class, 'pages']);
 Route::get('/search', [SuchiController::class, 'search']);
 Route::get('/recommendation', [SuchiController::class, 'recommendation']);
+Route::get('/skin-concern', [SuchiController::class, 'skinConcern']);
 Route::get('/checkout', [SuchiController::class, 'checkout']);
 Route::get('/wishlist', [SuchiController::class, 'wishlist']);
 Route::post('/wishlist/add', [SuchiController::class, 'addToWishlist']);
@@ -34,6 +36,8 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::get('/logout', [AuthController::class, 'logout']);
 Route::get('/register', [AuthController::class, 'registerPage']);
 Route::post('/register', [AuthController::class, 'register']);
+Route::get('/test', [SuchiController::class, 'test']);
+
 
     
 
@@ -41,6 +45,20 @@ Route::get('/home', function () {
     return view('home');
 });
 
-
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::get('/admin/dashboard', [SuchiController::class, 'adminDashboard']);
+    Route::get('/admin/customers', [SuchiController::class, 'adminCustomers']);
+    Route::get('/admin/products', [SuchiController::class, 'adminProducts']);
+    Route::post('/admin/products/add', [SuchiController::class, 'adminAddProduct']);
+    Route::post('/admin/products/edit/{id}', [SuchiController::class, 'adminEditProduct']);
+    Route::post('/admin/products/delete/{id}', [SuchiController::class, 'adminDeleteProduct']);
+});
 
 //->middleware('auth');//
+
+// Payment Routes
+Route::middleware('auth')->group(function () {
+    Route::post('/payment/initiate', [PaymentController::class, 'initiatePayment'])->name('payment.initiate');
+    Route::get('/payment/success', [PaymentController::class, 'paymentSuccess'])->name('payment.success');
+    Route::get('/payment/failure', [PaymentController::class, 'paymentFailure'])->name('payment.failure');
+});

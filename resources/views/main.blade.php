@@ -63,28 +63,33 @@
 
         .navbar-brand {
             padding: 0 !important;
-            margin:0;
+            margin: 0;
 
 
-            
+
         }
 
         .logo-container {
             display: flex;
             align-items: center;
             justify-content: flex-start;
-            height: 100px; /* Fits exactly within navbar */
-            width: 240px; /* Explicitly reserve space so it doesn't overlap adjacent links */
-            overflow: hidden; /* Clip anything that scales outside this box */
+            height: 100px;
+            /* Fits exactly within navbar */
+            width: 240px;
+            /* Explicitly reserve space so it doesn't overlap adjacent links */
+            overflow: hidden;
+            /* Clip anything that scales outside this box */
         }
 
         .logo-image {
-            max-height: 100px; 
+            max-height: 100px;
             height: auto;
             width: 100%;
             object-fit: contain;
-            transform: scale(2.8); /* Restored the large size! */
-            transform-origin: center center; /* Scale uniformly from center */
+            transform: scale(2.8);
+            /* Restored the large size! */
+            transform-origin: center center;
+            /* Scale uniformly from center */
             transition: all 0.3s ease;
         }
 
@@ -93,6 +98,7 @@
             .logo-container {
                 width: 150px;
             }
+
             .logo-image {
                 transform: scale(2.2);
             }
@@ -160,6 +166,11 @@
         #bannerImage {
             transition: opacity 0.8s ease-in-out;
         }
+
+        /* Hide the default dropdown caret for our custom profile icon */
+        .dropdown-toggle-hide-arrow::after {
+            display: none !important;
+        }
     </style>
     @yield('style')
 
@@ -184,9 +195,13 @@
                 <!-- Right side icons and Toggler container -->
                 <div class="d-flex align-items-center gap-2 gap-md-3 gap-lg-4 order-lg-last">
                     <!-- Search Form (Desktop) -->
-                    <form action="/search" method="GET" class="d-none d-md-flex align-items-center mb-0 position-relative">
-                        <input type="search" name="query" class="form-control form-control-sm rounded-pill" placeholder="Search..." required style="width: 140px; padding-right: 30px;">
-                        <button type="submit" class="btn text-dark p-0 position-absolute end-0 me-2 border-0 shadow-none"><i class="bi bi-search" style="font-size: 14px;"></i></button>
+                    <form action="/search" method="GET"
+                        class="d-none d-md-flex align-items-center mb-0 position-relative">
+                        <input type="search" name="query" class="form-control form-control-sm rounded-pill"
+                            placeholder="Search..." required style="width: 140px; padding-right: 30px;">
+                        <button type="submit"
+                            class="btn text-dark p-0 position-absolute end-0 me-2 border-0 shadow-none"><i
+                                class="bi bi-search" style="font-size: 14px;"></i></button>
                     </form>
 
                     <!-- Wishlist Icon -->
@@ -213,6 +228,39 @@
                         @endif
                     </a>
 
+                    <!-- Profile / Login Icon (Desktop Only) -->
+                    @guest
+                        <a href="/login" class="text-dark position-relative d-none d-lg-flex align-items-center">
+                            <i class="bi bi-person fs-5"></i>
+                        </a>
+                    @else
+                        <div class="dropdown d-none d-lg-flex">
+                            <a href="#" class="text-dark text-decoration-none d-flex align-items-center dropdown-toggle-hide-arrow" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                @php
+                                    $firstName = auth()->user()->firstname ?? '';
+                                    $lastName = auth()->user()->lastname ?? '';
+                                    $initials = strtoupper(substr($firstName, 0, 1) . substr($lastName, 0, 1));
+                                    if(empty($initials)) {
+                                        $initials = strtoupper(substr(auth()->user()->name ?? 'U', 0, 1));
+                                    }
+                                @endphp
+                                <div class="rounded-circle d-flex align-items-center justify-content-center text-white" style="width: 32px; height: 32px; background-color: #8e44ad; font-size: 13px; font-weight: 600;">
+                                    {{ $initials }}
+                                </div>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0 mt-2 position-absolute">
+                                <li>
+                                    <div class="px-3 py-2 border-bottom">
+                                        <span class="fw-bold d-block">{{ auth()->user()->firstname }} {{ auth()->user()->lastname }}</span>
+                                        <small class="text-muted">{{ auth()->user()->email }}</small>
+                                    </div>
+                                </li>
+                                <li><a class="dropdown-item py-2 mt-1" href="/admin/dashboard"><i class="bi bi-speedometer2 me-2"></i>Admin Dashboard</a></li>
+                                <li><a class="dropdown-item text-danger py-2" href="/logout"><i class="bi bi-box-arrow-right me-2"></i>Logout</a></li>
+                            </ul>
+                        </div>
+                    @endguest
+
                     <!-- Toggler -->
                     <button class="navbar-toggler border-0 shadow-none px-0 ms-2" type="button"
                         data-bs-toggle="offcanvas" data-bs-target="#navbarContent" aria-controls="navbarContent"
@@ -222,25 +270,32 @@
                 </div>
 
                 <!-- Navbar Links & Content -->
-                <div class="offcanvas offcanvas-start" tabindex="-1" id="navbarContent" aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas offcanvas-start" tabindex="-1" id="navbarContent"
+                    aria-labelledby="offcanvasNavbarLabel">
                     <div class="offcanvas-header border-bottom px-4 py-3">
-                        <h5 class="offcanvas-title font-family-sans-serif text-danger" id="offcanvasNavbarLabel" style="font-size: 14px;">Anease Skincare</h5>
-                        <button type="button" class="btn-close text-reset shadow-none" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                        <h5 class="offcanvas-title font-family-sans-serif text-danger" id="offcanvasNavbarLabel"
+                            style="font-size: 14px;">Anease Skincare</h5>
+                        <button type="button" class="btn-close text-reset shadow-none" data-bs-dismiss="offcanvas"
+                            aria-label="Close"></button>
                     </div>
                     <div class="offcanvas-body">
                         <!-- Center Links -->
-                        <ul id="navLinksList" class="navbar-nav mx-auto mb-2 mb-lg-0 d-flex gap-4 gap-lg-4 align-items-start align-items-lg-center mt-3 mt-lg-0 px-2 px-lg-0">
+                        <ul id="navLinksList"
+                            class="navbar-nav mx-auto mb-2 mb-lg-0 d-flex gap-4 gap-lg-4 align-items-start align-items-lg-center mt-3 mt-lg-0 px-2 px-lg-0">
                             <li class="nav-item">
                                 <a class="nav-link text-dark fw-bold text-uppercase d-flex align-items-center w-100"
-                                    style="font-size: 13px; letter-spacing: 1px;" href="/home"><i class="bi bi-house me-3 fs-5 d-lg-none"></i>Home</a>
+                                    style="font-size: 13px; letter-spacing: 1px;" href="/home"><i
+                                        class="bi bi-house me-3 fs-5 d-lg-none"></i>Home</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-dark fw-bold text-uppercase d-flex align-items-center w-100"
-                                    style="font-size: 13px; letter-spacing: 1px;" href="/about"><i class="bi bi-info-circle me-3 fs-5 d-lg-none"></i>About</a>
+                                    style="font-size: 13px; letter-spacing: 1px;" href="/about"><i
+                                        class="bi bi-info-circle me-3 fs-5 d-lg-none"></i>About</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-dark fw-bold text-uppercase d-flex align-items-center w-100"
-                                    style="font-size: 13px; letter-spacing: 1px;" href="/product"><i class="bi bi-grid me-3 fs-5 d-lg-none"></i>Products</a>
+                                    style="font-size: 13px; letter-spacing: 1px;" href="/product"><i
+                                        class="bi bi-grid me-3 fs-5 d-lg-none"></i>Products</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link text-dark fw-bold text-uppercase dropdown-toggle d-flex align-items-center w-100"
@@ -248,32 +303,51 @@
                                     data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="bi bi-stars me-3 fs-5 d-lg-none"></i>Recommendation
                                 </a>
-                                <ul class="dropdown-menu border-0 shadow-sm text-start mt-2">
-                                    <li><a class="dropdown-item py-2" href="/recommendation">Skin Type Finder</a></li>
+                                <ul class="dropdown-menu  border-0 shadow-sm text-start mt-2">
+                                    <li><a class="dropdown-item skincare py-2" href="/recommendation">Skin Type Finder</a></li>
+                                    <li><a class="dropdown-item skincare py-2" href="/skin-concern">Skin concern</a></li>
+
                                 </ul>
                             </li>
 
-                            <!-- Profile / Login Menu Item -->
+                            <!-- Profile / Login Menu Item (Mobile Only) -->
                             @guest
-                                <li class="nav-item mt-auto mt-lg-0 pt-4 pt-lg-0 border-top border-lg-0 w-100">
+                                <li class="nav-item mt-auto mt-lg-0 pt-4 pt-lg-0 border-top border-lg-0 w-100 d-lg-none">
                                     <a class="nav-link text-dark fw-bold text-uppercase d-flex align-items-center w-100"
-                                        style="font-size: 13px; letter-spacing: 1px;" href="/login"><i
-                                            class="bi bi-box-arrow-in-right me-3 fs-5 d-lg-none"></i><i
-                                            class="bi bi-person me-1 d-none d-lg-inline"></i>Login</a>
+                                        style="font-size: 13px; letter-spacing: 1px;" href="/login">
+                                        <i class="bi bi-person fs-5 me-3"></i>Login
+                                    </a>
                                 </li>
                             @else
-                                <li class="nav-item dropdown mt-auto mt-lg-0 pt-4 pt-lg-0 border-top border-lg-0 w-100">
-                                    <a class="nav-link text-dark fw-bold text-uppercase dropdown-toggle d-flex align-items-center w-100"
-                                        style="font-size: 13px; letter-spacing: 1px;" href="#" role="button"
-                                        data-bs-toggle="dropdown" aria-expanded="false">
-                                        <i class="bi bi-person-circle me-3 fs-5 d-lg-none"></i><i class="bi bi-person-fill me-1 d-none d-lg-inline"></i>Profile
+                                <li class="nav-item mt-auto mt-lg-0 pt-4 pt-lg-0 border-top border-lg-0 w-100 d-lg-none">
+                                    <div class="d-flex align-items-center mb-3">
+                                        @php
+                                            $firstName = auth()->user()->firstname ?? '';
+                                            $lastName = auth()->user()->lastname ?? '';
+                                            $initials = strtoupper(substr($firstName, 0, 1) . substr($lastName, 0, 1));
+                                            if(empty($initials)) {
+                                                $initials = strtoupper(substr(auth()->user()->name ?? 'U', 0, 1));
+                                            }
+                                        @endphp
+                                        <div class="rounded-circle d-flex align-items-center justify-content-center text-white" style="width: 40px; height: 40px; background-color: #8e44ad; font-size: 16px; font-weight: 600;">
+                                            {{ $initials }}
+                                        </div>
+                                        <div class="ms-3">
+                                            <span class="fw-bold d-block text-dark">{{ auth()->user()->firstname }} {{ auth()->user()->lastname }}</span>
+                                            <small class="text-muted" style="font-size: 11px;">{{ auth()->user()->email }}</small>
+                                        </div>
+                                    </div>
+                                    <a class="nav-link text-dark fw-bold text-uppercase d-flex align-items-center w-100 mb-2"
+                                        style="font-size: 13px; letter-spacing: 1px;" href="/admin/dashboard">
+                                        <i class="bi bi-speedometer2 fs-5 me-3"></i>Admin Dashboard
                                     </a>
-                                    <ul class="dropdown-menu border-0 shadow-sm text-start mt-2">
-                                        <li><a class="dropdown-item text-danger py-2" href="/logout"><i
-                                                    class="bi bi-box-arrow-right me-2"></i>Logout</a></li>
-                                    </ul>
+                                    <a class="nav-link text-danger fw-bold text-uppercase d-flex align-items-center w-100"
+                                        style="font-size: 13px; letter-spacing: 1px;" href="/logout">
+                                        <i class="bi bi-box-arrow-right fs-5 me-3"></i>Logout
+                                    </a>
                                 </li>
                             @endguest
+
                         </ul>
                     </div>
                 </div>
@@ -283,8 +357,11 @@
         <!-- Search Form (Mobile) placed below nav within header -->
         <div class="container d-block d-md-none pb-2 px-3">
             <form action="/search" method="GET" class="d-flex align-items-center position-relative w-100">
-                <input type="search" id="mobileSearchInput" name="query" class="form-control rounded-pill border-secondary bg-light" placeholder="Search for products..." required style="padding-right: 40px; width: 100%;">
-                <button type="submit" class="btn text-dark p-0 position-absolute end-0 border-0 shadow-none" style="margin-right: 15px;"><i class="bi bi-search"></i></button>
+                <input type="search" id="mobileSearchInput" name="query"
+                    class="form-control rounded-pill border-secondary bg-light" placeholder="Search for products..."
+                    required style="padding-right: 40px; width: 100%;">
+                <button type="submit" class="btn text-dark p-0 position-absolute end-0 border-0 shadow-none"
+                    style="margin-right: 15px;"><i class="bi bi-search"></i></button>
             </form>
         </div>
     </header>
@@ -480,7 +557,7 @@
     <script>
         function changePicture(name) {
             let img = document.getElementById("bannerImage");
-            if(img) {
+            if (img) {
                 img.src = name;
             }
         }

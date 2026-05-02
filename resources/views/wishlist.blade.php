@@ -23,10 +23,11 @@
                         @endif
                         <div class="card-body p-2 d-flex flex-column">
                             <h5 class="card-title mt-2">{{ $item->product_name }}</h5>
+                            <p class="fw-bold mb-1" style="color: var(--primary-pink);">${{ $item->product_price }}</p>
                             <p class="card-text text-muted small">{{ $item->description }}</p>
                             
                             <div class="mt-auto pt-3">
-                                <a href="#" onclick="event.preventDefault(); triggerCart('{{ $item->product_name }}', '{{ $item->product_photo }}', '{{ $item->description }}')" class="btn btn-primary theme-btn w-100 mb-2"><i class="bi bi-bag"></i> Checkout</a>
+                                <a href="#" onclick="event.preventDefault(); triggerCart('{{ $item->product_name }}', '{{ $item->product_photo }}', '{{ $item->description }}', '{{ $item->product_price }}')" class="btn btn-primary theme-btn w-100 mb-2"><i class="bi bi-bag"></i> Checkout</a>
                                 <form action="/wishlist/remove" method="POST">
                                     @csrf
                                     <input type="hidden" name="wishlist_id" value="{{ $item->id }}">
@@ -47,12 +48,14 @@
     @csrf
     <input type="hidden" name="product_name" id="cart_name">
     <input type="hidden" name="product_photo" id="cart_photo">
+    <input type="hidden" name="product_price" id="cart_price">
     <input type="hidden" name="description" id="cart_desc">
 </form>
 <script>
-    function triggerCart(name, photo, desc) {
+    function triggerCart(name, photo, desc, price = '25.00') {
         document.getElementById('cart_name').value = name;
         document.getElementById('cart_photo').value = photo;
+        document.getElementById('cart_price').value = price;
         document.getElementById('cart_desc').value = desc;
         document.getElementById('cartForm').submit();
     }
