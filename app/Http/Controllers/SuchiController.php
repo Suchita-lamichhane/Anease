@@ -7,6 +7,7 @@ use App\Models\Wishlist;
 use App\Models\Cart;
 use App\Models\User;
 use App\Models\Order;
+use App\Models\Contact;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -74,15 +75,45 @@ class SuchiController extends Controller
             return redirect('/login')->withErrors(['login' => 'Please login to add items to your cart']);
         }
 
-        Cart::create([
-            'user_id' => Auth::id(),
-            'product_name' => $request->product_name,
-            'product_photo' => $request->product_photo,
-            'product_price' => $request->product_price,
-            'description' => $request->description,
-        ]);
+        $existingCart = Cart::where('user_id', Auth::id())
+            ->where('product_name', $request->product_name)
+            ->first();
+
+        if ($existingCart) {
+            $existingCart->increment('quantity');
+        } else {
+            Cart::create([
+                'user_id' => Auth::id(),
+                'product_name' => $request->product_name,
+                'product_photo' => $request->product_photo,
+                'product_price' => $request->product_price,
+                'description' => $request->description,
+                'quantity' => 1,
+            ]);
+        }
 
         return redirect()->back()->with('success', 'Product added to cart successfully!');
+    }
+
+    public function updateCartQuantity(Request $request) {
+        if(!Auth::check()) {
+            return redirect('/login');
+        }
+
+        $cart = Cart::where('id', $request->cart_id)->where('user_id', Auth::id())->first();
+        if ($cart) {
+            if ($request->action == 'increase') {
+                $cart->increment('quantity');
+            } elseif ($request->action == 'decrease') {
+                if ($cart->quantity > 1) {
+                    $cart->decrement('quantity');
+                } else {
+                    $cart->delete();
+                }
+            }
+            return redirect()->back();
+        }
+        return redirect()->back()->withErrors(['error' => 'Item not found in cart.']);
     }
 
     public function removeFromCart(Request $request) {
@@ -188,5 +219,29 @@ class SuchiController extends Controller
             $product->delete();
         }
         return redirect()->back()->with('success', 'Product deleted successfully!');
+    }
+
+    public function helpCenter()
+    {
+        return view('contact');
+    }
+
+    public function submitInquiry(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'message' => 'required|string',
+        ]);
+
+        Contact::create([
+            'user_id' => Auth::id(),
+            'name' => $request->name,
+            'email' => $request->email,
+            'subject' => $request->subject ?? 'General Inquiry',
+            'message' => $request->message,
+        ]);
+
+        return redirect()->back()->with('success', 'Your message has been sent successfully! Our team will get back to you soon.');
     }
 }

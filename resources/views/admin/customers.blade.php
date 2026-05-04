@@ -13,10 +13,11 @@
     
     <style>
         :root {
-            --primary-pink: #df216e;
-            --bg-light: #f4f6fa;
-            --text-dark: #2d3748;
-            --text-muted: #a0aec0;
+            --primary-color: #d36856;
+            --sidebar-bg: #3c3630;
+            --bg-light: #f9f7f5;
+            --text-dark: #3c3630;
+            --text-muted: #857e77;
         }
 
         body {
@@ -29,7 +30,7 @@
         /* Sidebar Styling */
         .sidebar {
             width: 250px;
-            background-color: var(--primary-pink);
+            background-color: var(--sidebar-bg);
             color: white;
             position: fixed;
             top: 0;
@@ -75,7 +76,7 @@
 
         .nav-item.active {
             background-color: white;
-            color: var(--primary-pink);
+            color: var(--primary-color);
         }
 
         .sidebar-footer {
@@ -187,8 +188,8 @@
         }
         
         .role-super-admin {
-            background-color: rgba(223, 33, 110, 0.1);
-            color: var(--primary-pink);
+            background-color: rgba(211, 104, 86, 0.1);
+            color: var(--primary-color);
         }
         
         .role-consumer {
@@ -253,7 +254,7 @@
                     <div class="fw-bold" style="font-size: 14px;">{{ auth()->user()->firstname ?? 'Admin' }}</div>
                     <div class="text-muted" style="font-size: 12px;">Super admin</div>
                 </div>
-                <div class="rounded-circle d-flex align-items-center justify-content-center" style="background-color: var(--primary-pink); color: white; width: 45px; height: 45px; font-size: 18px;">
+                <div class="rounded-circle d-flex align-items-center justify-content-center" style="background-color: var(--primary-color); color: white; width: 45px; height: 45px; font-size: 18px;">
                     {{ strtoupper(substr(auth()->user()->firstname ?? 'A', 0, 1)) }}
                 </div>
             </div>
@@ -281,7 +282,7 @@
                             <td class="fw-bold text-muted">#{{ $user->id }}</td>
                             <td>
                                 <div class="d-flex align-items-center">
-                                    <div class="rounded-circle d-flex align-items-center justify-content-center me-3" style="background-color: var(--bg-light); color: var(--primary-pink); width: 40px; height: 40px; font-weight: bold;">
+                                    <div class="rounded-circle d-flex align-items-center justify-content-center me-3" style="background-color: var(--bg-light); color: var(--primary-color); width: 40px; height: 40px; font-weight: bold;">
                                         {{ strtoupper(substr($user->firstname ?? $user->name ?? 'U', 0, 1)) }}
                                     </div>
                                     <div>

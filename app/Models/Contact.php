@@ -5,17 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Cart extends Model
+class Contact extends Model
 {
-    use HasFactory;
-
     protected $fillable = [
         'user_id',
-        'product_name',
-        'product_photo',
-        'product_price',
-        'description',
-        'quantity',
+        'name',
+        'email',
+        'subject',
+        'message',
     ];
 
     public function user()

@@ -13,10 +13,11 @@
     
     <style>
         :root {
-            --primary-pink: #df216e;
-            --bg-light: #f4f6fa;
-            --text-dark: #2d3748;
-            --text-muted: #a0aec0;
+            --primary-color: #d36856;
+            --sidebar-bg: #3c3630;
+            --bg-light: #f9f7f5;
+            --text-dark: #3c3630;
+            --text-muted: #857e77;
         }
 
         body {
@@ -29,7 +30,7 @@
         /* Sidebar Styling */
         .sidebar {
             width: 250px;
-            background-color: var(--primary-pink);
+            background-color: var(--sidebar-bg);
             color: white;
             position: fixed;
             top: 0;
@@ -75,7 +76,7 @@
 
         .nav-item.active {
             background-color: white;
-            color: var(--primary-pink);
+            color: var(--primary-color);
         }
 
         .sidebar-footer {
@@ -162,8 +163,8 @@
             height: 100%;
         }
 
-        .stat-card.pink-bg {
-            background: var(--primary-pink);
+        .stat-card.primary-bg {
+            background: var(--primary-color);
             color: white;
         }
 
@@ -174,7 +175,7 @@
             margin-bottom: 4px;
         }
 
-        .pink-bg .stat-value, .pink-bg .stat-label {
+        .primary-bg .stat-value, .primary-bg .stat-label {
             color: white;
         }
 
@@ -185,11 +186,11 @@
         }
 
         .stat-icon {
-            color: var(--primary-pink);
+            color: var(--primary-color);
             font-size: 24px;
         }
 
-        .pink-bg .stat-icon {
+        .primary-bg .stat-icon {
             color: white;
         }
 
@@ -215,7 +216,7 @@
         }
 
         .btn-see-all {
-            background: var(--primary-pink);
+            background: var(--primary-color);
             color: white;
             border: none;
             border-radius: 20px;
@@ -251,7 +252,7 @@
             margin-right: 8px;
         }
 
-        .status-active { background-color: var(--primary-pink); }
+        .status-active { background-color: var(--primary-color); }
         .status-pending { background-color: #f59e0b; }
 
         /* User List */
@@ -276,7 +277,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--primary-pink);
+            color: var(--primary-color);
             font-weight: 600;
             margin-right: 15px;
         }
@@ -355,7 +356,7 @@
                     <div class="fw-bold" style="font-size: 14px;">{{ auth()->user()->firstname ?? 'Admin' }}</div>
                     <div class="text-muted" style="font-size: 12px;">Super admin</div>
                 </div>
-                <div class="user-avatar" style="background-color: var(--primary-pink); color: white; width: 45px; height: 45px; font-size: 18px; margin-right: 0;">
+                <div class="user-avatar" style="background-color: var(--primary-color); color: white; width: 45px; height: 45px; font-size: 18px; margin-right: 0;">
                     {{ strtoupper(substr(auth()->user()->firstname ?? 'S', 0, 1)) }}
                 </div>
             </div>
@@ -397,7 +398,7 @@
                 </div>
             </div>
             <div class="col-md-3">
-                <div class="stat-card pink-bg">
+                <div class="stat-card primary-bg">
                     <div>
                         <div class="stat-value">${{ number_format($totalRevenue ?? 0, 2) }}</div>
                         <div class="stat-label">Total Revenue</div>
@@ -437,7 +438,7 @@
                                     <td>
                                         Order #{{ $order->id }}<br>
                                         <span class="text-muted" style="font-size: 12px; display: block; max-width: 200px; overflow: hidden; text-truncate: ellipsis; white-space: nowrap;">{{ $order->product_details }}</span>
-                                        <span class="fw-bold" style="font-size: 13px; color: var(--primary-pink);">${{ number_format($order->amount, 2) }}</span>
+                                        <span class="fw-bold" style="font-size: 13px; color: var(--primary-color);">${{ number_format($order->amount, 2) }}</span>
                                     </td>
                                     <td>{{ $order->user->firstname ?? 'Unknown' }} {{ $order->user->lastname ?? '' }}</td>
                                     <td>

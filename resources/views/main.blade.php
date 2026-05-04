@@ -219,11 +219,11 @@
                     <!-- Cart Icon -->
                     <a href="/checkout" class="text-dark position-relative">
                         <i class="bi bi-bag fs-5"></i>
-                        @if (auth()->check() && \App\Models\Cart::where('user_id', auth()->id())->count() > 0)
+                        @if (auth()->check() && \App\Models\Cart::where('user_id', auth()->id())->sum('quantity') > 0)
                             <span
                                 class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
                                 style="font-size: 9px; padding: 3px 6px;">
-                                {{ \App\Models\Cart::where('user_id', auth()->id())->count() }}
+                                {{ \App\Models\Cart::where('user_id', auth()->id())->sum('quantity') }}
                             </span>
                         @endif
                     </a>
@@ -412,15 +412,15 @@
                 </div>
             </div>
             <div class="col-6 col-md-3 p-0">
-                <div class="col-12 shadow  demo p-3  d-flex flex-column align-items-center justify-content-center">
-                    <i class="bi bi-headset  fs-1 text-danger"></i>
-                    <h4 class=" d-flex text-dark justify-content-center my-0 align-items-center mt-2 text-center fs-5">
-                        HELP CENTER
-                    </h4>
-                    <small class="text-center">Got a question? Look no further.Browser our FAQs or submit your query
-                        here
-                    </small>
-                </div>
+                <a href="{{ route('help.center') }}" class="text-decoration-none">
+                    <div class="col-12 shadow demo p-3 d-flex flex-column align-items-center justify-content-center h-100" style="transition: transform 0.3s ease;">
+                        <i class="bi bi-headset fs-1 text-danger"></i>
+                        <h4 class="d-flex text-dark justify-content-center my-0 align-items-center mt-2 text-center fs-5 fw-bold">
+                            HELP CENTER
+                        </h4>
+                        <small class="text-center text-muted mt-2">Got a question? Submit your query here for expert skincare advice.</small>
+                    </div>
+                </a>
             </div>
             <div class="col-6 col-md-3 p-0">
                 <div class="col-12 shadow  demo p-3  d-flex flex-column align-items-center justify-content-center">

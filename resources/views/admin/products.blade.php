@@ -13,10 +13,11 @@
     
     <style>
         :root {
-            --primary-pink: #df216e;
-            --bg-light: #f4f6fa;
-            --text-dark: #2d3748;
-            --text-muted: #a0aec0;
+            --primary-color: #d36856;
+            --sidebar-bg: #3c3630;
+            --bg-light: #f9f7f5;
+            --text-dark: #3c3630;
+            --text-muted: #857e77;
         }
 
         body {
@@ -29,7 +30,7 @@
         /* Sidebar Styling */
         .sidebar {
             width: 250px;
-            background-color: var(--primary-pink);
+            background-color: var(--sidebar-bg);
             color: white;
             position: fixed;
             top: 0;
@@ -75,7 +76,7 @@
 
         .nav-item.active {
             background-color: white;
-            color: var(--primary-pink);
+            color: var(--primary-color);
         }
 
         .sidebar-footer {
@@ -159,7 +160,7 @@
         }
 
         .btn-add {
-            background: var(--primary-pink);
+            background: var(--primary-color);
             color: white;
             border: none;
             border-radius: 8px;
@@ -268,7 +269,7 @@
                     <div class="fw-bold" style="font-size: 14px;">{{ auth()->user()->firstname ?? 'Admin' }}</div>
                     <div class="text-muted" style="font-size: 12px;">Super admin</div>
                 </div>
-                <div class="rounded-circle d-flex align-items-center justify-content-center" style="background-color: var(--primary-pink); color: white; width: 45px; height: 45px; font-size: 18px;">
+                <div class="rounded-circle d-flex align-items-center justify-content-center" style="background-color: var(--primary-color); color: white; width: 45px; height: 45px; font-size: 18px;">
                     {{ strtoupper(substr(auth()->user()->firstname ?? 'A', 0, 1)) }}
                 </div>
             </div>
@@ -313,7 +314,7 @@
                             <td class="text-muted text-truncate" style="max-width: 250px;">{{ $product->description }}</td>
                             <td>
                                 <div class="d-flex gap-2">
-                                    <button type="button" class="btn btn-sm" style="color: var(--primary-pink); background: rgba(223, 33, 110, 0.1); border: none; padding: 6px 12px; border-radius: 6px; font-size: 13px; font-weight: 600;" data-bs-toggle="modal" data-bs-target="#editProductModal{{ $product->id }}">
+                                    <button type="button" class="btn btn-sm" style="color: var(--primary-color); background: rgba(211, 104, 86, 0.1); border: none; padding: 6px 12px; border-radius: 6px; font-size: 13px; font-weight: 600;" data-bs-toggle="modal" data-bs-target="#editProductModal{{ $product->id }}">
                                         <i class="bi bi-pencil-square"></i> Edit
                                     </button>
                                     <form action="/admin/products/delete/{{ $product->id }}" method="POST" onsubmit="return confirm('Delete this product?');">
