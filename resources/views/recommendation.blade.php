@@ -67,11 +67,32 @@
                     <div id="action-container" style="display: none;" class="mt-3">
                         <a href="/product" class="btn btn-outline-danger theme-btn px-4 py-2">Learn More</a>
                     </div>
+
+                    <!-- Ideal Routine Section -->
+                    <div id="routine-section" class="mt-4 mb-5" style="display: none;">
+                        <h5 class="fw-bold mb-4 text-center text-uppercase" style="letter-spacing: 1.5px;">Your Ideal Routine</h5>
+                        <div class="row justify-content-center">
+                            <div class="col-md-11">
+                                <div class="routine-card overflow-hidden rounded-4 shadow-sm bg-white p-2 border border-light">
+                                    <img id="routine-image" src="" class="img-fluid rounded-3 w-100" alt="Routine Guide">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<style>
+    .routine-card {
+        transition: transform 0.3s ease;
+    }
+    .routine-card:hover {
+        transform: scale(1.01);
+    }
+</style>
 
 <script>
     // Original Skin Type Finder Script
@@ -124,6 +145,23 @@
         }
 
         document.getElementById("result").innerText = message;
+
+        // Show Routine Image
+        let routineImage = "";
+        const assetPath = "{{ asset('assets/') }}";
+        
+        if (result === "dry") routineImage = assetPath + "/Dry skin.png";
+        else if (result === "oily") routineImage = assetPath + "/oily skin.png";
+        else if (result === "normal") routineImage = assetPath + "/Normal skin.png";
+        else if (result === "combo") routineImage = assetPath + "/combination skin.png";
+        
+        if (routineImage) {
+            document.getElementById("routine-image").src = routineImage;
+            document.getElementById("routine-section").style.display = "block";
+        } else {
+            document.getElementById("routine-section").style.display = "none";
+        }
+
         document.getElementById("action-container").style.display = "block";
     }
 

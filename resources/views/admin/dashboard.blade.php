@@ -362,6 +362,39 @@
             </div>
         </div>
 
+        <!-- Filter Row -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="content-card">
+                    <form action="/admin/dashboard" method="GET" class="row g-3 align-items-end">
+                        <div class="col-md-4">
+                            <label class="form-label fw-semibold" style="font-size: 13px; color: var(--text-muted);">Select Month</label>
+                            <select name="month" class="form-select border-0 bg-light rounded-3 shadow-sm">
+                                @for ($i = 1; $i <= 12; $i++)
+                                    <option value="{{ sprintf('%02d', $i) }}" {{ $month == sprintf('%02d', $i) ? 'selected' : '' }}>
+                                        {{ date('F', mktime(0, 0, 0, $i, 1)) }}
+                                    </option>
+                                @endfor
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label fw-semibold" style="font-size: 13px; color: var(--text-muted);">Select Year</label>
+                            <select name="year" class="form-select border-0 bg-light rounded-3 shadow-sm">
+                                @for ($i = date('Y'); $i >= date('Y') - 5; $i--)
+                                    <option value="{{ $i }}" {{ $year == $i ? 'selected' : '' }}>{{ $i }}</option>
+                                @endfor
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <button type="submit" class="btn btn-primary w-100 rounded-3 shadow-sm py-2" style="background-color: var(--primary-color); border: none; font-weight: 600;">
+                                <i class="bi bi-filter me-2"></i> Apply Filter
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
         @if($errors->any())
             <div class="alert alert-danger border-0 shadow-sm rounded-3 mb-4">
                 {{ $errors->first() }}
@@ -374,7 +407,7 @@
                 <div class="stat-card">
                     <div>
                         <div class="stat-value">{{ $totalUsers }}</div>
-                        <div class="stat-label">Customers</div>
+                        <div class="stat-label">New Customers</div>
                     </div>
                     <div class="stat-icon"><i class="bi bi-people-fill"></i></div>
                 </div>
@@ -383,7 +416,7 @@
                 <div class="stat-card">
                     <div>
                         <div class="stat-value">{{ $totalProducts }}</div>
-                        <div class="stat-label">Products</div>
+                        <div class="stat-label">Total Products</div>
                     </div>
                     <div class="stat-icon"><i class="bi bi-box-seam-fill"></i></div>
                 </div>
@@ -392,7 +425,7 @@
                 <div class="stat-card">
                     <div>
                         <div class="stat-value">{{ $totalOrders }}</div>
-                        <div class="stat-label">Orders</div>
+                        <div class="stat-label">Monthly Orders</div>
                     </div>
                     <div class="stat-icon"><i class="bi bi-bag-fill"></i></div>
                 </div>
@@ -401,7 +434,7 @@
                 <div class="stat-card primary-bg">
                     <div>
                         <div class="stat-value">${{ number_format($totalRevenue ?? 0, 2) }}</div>
-                        <div class="stat-label">Total Revenue</div>
+                        <div class="stat-label">Monthly Revenue</div>
                     </div>
                     <div class="stat-icon"><i class="bi bi-currency-dollar"></i></div>
                 </div>

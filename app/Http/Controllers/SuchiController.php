@@ -159,22 +159,42 @@ class SuchiController extends Controller
         return redirect()->back()->with('success', 'Product removed from wishlist successfully!');
     }
 
-    public function adminDashboard()
+    public function adminDashboard(Request $request)
     {
-        $totalUsers = User::count();
-        $totalProducts = Product::count();
-        $totalOrders = Order::whereIn('status', ['completed', 'COD'])->count();
-        $totalRevenue = Order::whereIn('status', ['completed', 'COD'])->get()->sum(function($order) {
+        $month = $request->input('month', date('m'));
+        $year = $request->input('year', date('Y'));
+
+        $totalUsers = User::whereMonth('created_at', $month)
+            ->whereYear('created_at', $year)
+            ->count();
+        
+        $totalProducts = Product::count(); // Usually we want total products, but let's stick to user request if they mean "added this month"
+
+        $ordersQuery = Order::whereIn('status', ['completed', 'COD'])
+            ->whereMonth('created_at', $month)
+            ->whereYear('created_at', $year);
+
+        $totalOrders = $ordersQuery->count();
+        
+        $totalRevenue = $ordersQuery->get()->sum(function($order) {
             return floatval(str_replace(['$', ','], '', $order->amount));
         });
 
-        $checkoutCustomers = User::whereHas('orders', function($q) {
-            $q->whereIn('status', ['completed', 'COD']);
+        $checkoutCustomers = User::whereHas('orders', function($q) use ($month, $year) {
+            $q->whereIn('status', ['completed', 'COD'])
+              ->whereMonth('created_at', $month)
+              ->whereYear('created_at', $year);
         })->latest()->take(5)->get();
         
-        $recentOrders = Order::with('user')->whereIn('status', ['completed', 'COD'])->latest()->take(5)->get();
+        $recentOrders = Order::with('user')
+            ->whereIn('status', ['completed', 'COD'])
+            ->whereMonth('created_at', $month)
+            ->whereYear('created_at', $year)
+            ->latest()
+            ->take(5)
+            ->get();
 
-        return view('admin.dashboard', compact('totalUsers', 'totalProducts', 'totalOrders', 'totalRevenue', 'checkoutCustomers', 'recentOrders'));
+        return view('admin.dashboard', compact('totalUsers', 'totalProducts', 'totalOrders', 'totalRevenue', 'checkoutCustomers', 'recentOrders', 'month', 'year'));
     }
 
     public function adminCustomers() {

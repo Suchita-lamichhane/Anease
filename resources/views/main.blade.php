@@ -171,6 +171,79 @@
         .dropdown-toggle-hide-arrow::after {
             display: none !important;
         }
+
+        /* Floating Chat Widget */
+        .chat-widget {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: rgb(211, 104, 86);
+            color: white !important;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            z-index: 9999;
+            box-shadow: 0 5px 15px rgba(211, 104, 86, 0.4);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-decoration: none !important;
+        }
+
+        .chat-widget:hover {
+            transform: scale(1.1) translateY(-5px);
+            background-color: #b34a3a;
+            box-shadow: 0 8px 25px rgba(211, 104, 86, 0.6);
+        }
+
+        .chat-widget i {
+            transition: transform 0.3s ease;
+        }
+
+        .chat-widget:hover i {
+            transform: rotate(-10deg) scale(1.1);
+        }
+
+        .chat-pulse {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: rgb(211, 104, 86);
+            border-radius: 50%;
+            opacity: 0.6;
+            z-index: -1;
+            animation: pulse-ring 2s infinite;
+        }
+
+        @keyframes pulse-ring {
+            0% { transform: scale(1); opacity: 0.6; }
+            100% { transform: scale(1.6); opacity: 0; }
+        }
+
+        /* Tooltip style */
+        .chat-widget::before {
+            content: "How can we help?";
+            position: absolute;
+            right: 75px;
+            background: #333;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 12px;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .chat-widget:hover::before {
+            opacity: 1;
+            visibility: visible;
+            right: 85px;
+        }
     </style>
     @yield('style')
 
@@ -541,6 +614,12 @@
             </div>
         </div>
     </footer>
+
+    <!-- Floating Chat Widget -->
+    <a href="{{ route('help.center') }}" class="chat-widget d-flex" id="chatWidget">
+        <div class="chat-pulse"></div>
+        <i class="bi bi-chat-dots-fill"></i>
+    </a>
 
 
 
