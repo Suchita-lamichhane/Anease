@@ -15,7 +15,9 @@ class Order extends Model
         'transaction_uuid',
         'status',
         'ref_id',
-        'product_details'
+        'product_details',
+        'payment_method',
+        'billing_details',
     ];
 
     public function user()
