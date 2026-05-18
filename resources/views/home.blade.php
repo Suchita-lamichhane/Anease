@@ -21,36 +21,36 @@
                     </div>
                     <!--  -->
                      <!-- Popular Categories Section -->
-                    <div class="col-12 my-5 py-5 rounded" style="background-color: #F7F5F2;">
-                        <div class="text-center mb-5">
+                    <div class="col-12 my-4 py-3 rounded" style="background-color: #F7F5F2;">
+                        <div class="text-center mb-4">
                             <h6 class="text-uppercase text-muted mb-2" style="font-size: 11px; letter-spacing: 2px;">Shop by Categories</h6>
                             <h2 class="text-dark fw-normal" style="font-family: serif; font-size: 2.5rem;">Popular Categories</h2>
                         </div>
                         
                         <div class="row m-0 justify-content-center text-center">
                             <div class="col-6 col-md-3 d-flex flex-column align-items-center mb-4 mb-md-0">
-                                <div style="border: 1px dashed #bdaea0; border-radius: 150px; padding: 8px; width: 140px; height: 210px;" class="mb-3">
+                                <div style="border: 1px dashed #bdaea0; border-radius: 150px; padding: 8px; width: 140px; height: 180px;" class="mb-3">
                                     <img src="/assets/20.jpg" style="width: 100%; height: 100%; object-fit: cover; border-radius: 140px;" alt="Bio-Herbal">
                                 </div>
                                 <h6 class="mb-1 text-dark" style="font-weight: 600;">Oily-skin</h6>
                                 <small class="text-muted" style="font-size: 11px;">3 items</small>
                             </div>
                             <div class="col-6 col-md-3 d-flex flex-column align-items-center mb-4 mb-md-0">
-                                <div style="border: 1px dashed #bdaea0; border-radius: 150px; padding: 8px; width: 140px; height: 210px;" class="mb-3">
+                                <div style="border: 1px dashed #bdaea0; border-radius: 150px; padding: 8px; width: 140px; height: 180px;" class="mb-3">
                                     <img src="/assets/18.jpg" style="width: 100%; height: 100%; object-fit: cover; border-radius: 140px;" alt="Body-Lotion">
                                 </div>
                                 <h6 class="mb-1 text-dark" style="font-weight: 600;">Dry-skin</h6>
                                 <small class="text-muted" style="font-size: 11px;">4 items</small>
                             </div>
                             <div class="col-6 col-md-3 d-flex flex-column align-items-center mb-4 mb-md-0">
-                                <div style="border: 1px dashed #bdaea0; border-radius: 150px; padding: 8px; width: 140px; height: 210px;" class="mb-3">
+                                <div style="border: 1px dashed #bdaea0; border-radius: 150px; padding: 8px; width: 140px; height: 180px;" class="mb-3">
                                     <img src="/assets/24.jpg" style="width: 100%; height: 100%; object-fit: cover; border-radius: 140px;" alt="Candle-Spa">
                                 </div>
                                 <h6 class="mb-1 text-dark" style="font-weight: 600;">Sensitive-skin</h6>
                                 <small class="text-muted" style="font-size: 11px;">2 items</small>
                             </div>
                             <div class="col-6 col-md-3 d-flex flex-column align-items-center mb-4 mb-md-0">
-                                <div style="border: 1px dashed #bdaea0; border-radius: 150px; padding: 8px; width: 140px; height: 210px;" class="mb-3">
+                                <div style="border: 1px dashed #bdaea0; border-radius: 150px; padding: 8px; width: 140px; height: 180px;" class="mb-3">
                                     <img src="/assets/29.jpg" style="width: 100%; height: 100%; object-fit: cover; border-radius: 140px;" alt="Skin-Care">
                                 </div>
                                 <h6 class="mb-1 text-dark" style="font-weight: 600;">Normal-skin</h6>

@@ -63,27 +63,32 @@
                 </form>
 
                 <div class="mt-4 text-center">
-                    <h5 id="result" class="fw-bold text-dark"></h5>
-                    <div id="action-container" style="display: none;" class="mt-3">
-                        <a href="/product" class="btn btn-outline-danger theme-btn px-4 py-2">Learn More</a>
-                    </div>
+                    <h4 id="result" class="fw-bold text-danger fs-3"></h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> <!-- Closing the container early -->
 
-                    <!-- Ideal Routine Section -->
-                    <div id="routine-section" class="mt-4 mb-5" style="display: none;">
-                        <h5 class="fw-bold mb-4 text-center text-uppercase" style="letter-spacing: 1.5px;">Your Ideal Routine</h5>
-                        <div class="row justify-content-center">
-                            <div class="col-md-11">
-                                <div class="routine-card overflow-hidden rounded-4 shadow-sm bg-white p-2 border border-light">
-                                    <img id="routine-image" src="" class="img-fluid rounded-3 w-100" alt="Routine Guide">
-                                </div>
-                            </div>
-                        </div>
+<!-- Ideal Routine Section (Full Screen Width) -->
+<div class="container-fluid px-0 px-lg-4 mb-4">
+    <div id="routine-section" class="mt-4" style="display: none; min-height: 85vh;">
+        <div class="row justify-content-center mx-0 h-100 align-items-center">
+            <div class="col-12 px-0">
+                <div class="card shadow-lg p-3 p-md-4 border-0 bg-white" style="border-radius: 24px;">
+                    <h3 class="fw-bold mb-3 text-center text-uppercase" style="letter-spacing: 2px;"><i>Your Ideal Routine</i></h3>
+                    
+                    <div class="routine-card overflow-hidden text-center mb-4">
+                        <img id="routine-image" src="" class="img-fluid w-100" style="object-fit: contain; max-height: 65vh; border-radius: 16px;" alt="Routine Guide">
+                    </div>
+                    
+                    <div id="action-container" class="text-center pb-2" style="display: none;">
+                        <a href="/product" class="btn btn-outline-danger theme-btn px-5 py-2 fs-5 rounded-pill shadow-sm fw-bold">Learn More About Products</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
 <style>
     .routine-card {
@@ -154,10 +159,17 @@
         else if (result === "oily") routineImage = assetPath + "/oily skin.png";
         else if (result === "normal") routineImage = assetPath + "/Normal skin.png";
         else if (result === "combo") routineImage = assetPath + "/combination skin.png";
+        else if (result === "sensitive") routineImage = assetPath + "/sensititve skin.png";
         
         if (routineImage) {
             document.getElementById("routine-image").src = routineImage;
-            document.getElementById("routine-section").style.display = "block";
+            let routineSection = document.getElementById("routine-section");
+            routineSection.style.display = "block";
+            
+            // Scroll to the routine section automatically
+            setTimeout(() => {
+                routineSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 100);
         } else {
             document.getElementById("routine-section").style.display = "none";
         }
